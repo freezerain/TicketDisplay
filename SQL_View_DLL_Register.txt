@@ -1,0 +1,7 @@
+﻿if not exists(select IDDLL from DLLS where DLL = 'TicketDisplay.Main')
+begin
+ declare @id int
+ select @id = max(iddll) + 1 from dlls
+ insert into dlls(iddll, dll, fabricante, producto, ORDENDEEJECUCION)
+ values(@id, 'TicketDisplay.Main', 'SGE', 'TicketDisplay', 1)
+end
